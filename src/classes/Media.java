@@ -4,26 +4,26 @@ import interfaces.Audio;
 import java.util.ArrayList;
 
 public class Media implements Audio {
-    private String nome;
-
-    ArrayList<Media> adicionaPlaylist() {
-        return null;
+    private int tamanhoPlaylist;
+    public void retornaNome() {
     }
 
-    public String getNome() {
-        return nome;
+    public void retornaMaisMusica(){
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public int getTamanhoPlaylist() {
+        return tamanhoPlaylist;
     }
 
-    public String retornaNome() {
-        return "Media sem nome";
+    public void setTamanhoPlaylist(int tamanhoPlaylist) {
+        this.tamanhoPlaylist = tamanhoPlaylist;
     }
 
-    @Override
-    public int tamanhoPlaylist() {
-        return 0;
+    public void imprimePlaylist(ArrayList<String> playlist){
+        System.out.println("A playlist contém " + getTamanhoPlaylist() + " musicas, aqui está: ");
+        //Music playlist = new Music();
+        for (String item : playlist) {
+            System.out.println(item);
+        }
     }
 }

@@ -3,22 +3,23 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Music extends Media {
-    private int getTamanhoPlaylist;
-    private final ArrayList<String> playlist = new ArrayList<>();
-    public int getGetTamanhoPlaylist() {
-        return getTamanhoPlaylist;
-    }
-    public void setGetTamanhoPlaylist(int getTamanhoPlaylist) {
-        this.getTamanhoPlaylist = getTamanhoPlaylist;
-    }
-    public String retornaNome() {
-        boolean maisUmaMusica = true;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o nome de uma musica: ");
-        String userInput = scanner.nextLine();
-        playlist.add(userInput);
-        int contador = 1;
+    private final Scanner scanner = new Scanner(System.in);
+    private String userInput;
+    private int contador = 1;
+    private boolean maisUmaMusica = true;
 
+
+    private final ArrayList<String> playlist = new ArrayList<>();
+
+    public void retornaNome() {
+        System.out.println("Digite o nome de uma musica: ");
+        userInput = scanner.nextLine();
+        playlist.add(userInput);
+        retornaMaisMusica();
+        imprimePlaylist(playlist);
+    }
+
+    public void retornaMaisMusica(){
         while (maisUmaMusica){
             System.out.println("Você quer adicionar mais uma música na playlist? \n 1 = Sim \n 2 = Não");
             userInput = scanner.nextLine();
@@ -36,14 +37,8 @@ public class Music extends Media {
                 maisUmaMusica = false;
             }
 
-            setGetTamanhoPlaylist(contador);
+            setTamanhoPlaylist(contador);
         }
         scanner.close();
-
-        System.out.println("A playlist contém " + getTamanhoPlaylist + " musicas, aqui está: ");
-        for (String item : playlist) {
-            System.out.println(item);
-        }
-        return null;
     }
 }
