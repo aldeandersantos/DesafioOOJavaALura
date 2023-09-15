@@ -6,16 +6,12 @@ import java.util.Scanner;
 public class Media implements Audio {
     private int tamanhoPlaylist;
     protected int contador = 1;
-
     private String mediaType;
-
     protected Scanner scanner = new Scanner(System.in);
     protected String userInput;
     protected boolean maisUmaMedia = true;
-
     protected final ArrayList<String> playlist = new ArrayList<>();
     public void menuPrincipal(){
-        String tipoDeMedia;
         System.out.println("""
                 Olá, você gostaria de criar uma playlist de musicas ou de podcasts?
                  1 = Musicas\s
@@ -23,20 +19,14 @@ public class Media implements Audio {
         userInput = scanner.nextLine();
 
         if (userInput.equals("1")){
-            tipoDeMedia = " musicas";
-            setMediaType(tipoDeMedia);
             Music metodoMusic = new Music();
-
             metodoMusic.pedeMusica();
-        } else if (userInput.equals("2")){
-            tipoDeMedia = " episódios de podcast";
-            setMediaType(tipoDeMedia);
-            Podcast metodoPodcast = new Podcast();
 
+        } else if (userInput.equals("2")){
+            Podcast metodoPodcast = new Podcast();
             metodoPodcast.pedePodcast();
         }
     }
-
     @Override
     public void pedeMusica() {
     }
@@ -66,7 +56,6 @@ public class Media implements Audio {
 
     public void imprimePlaylist(ArrayList<String> playlist){
         System.out.println("A playlist contém " + getTamanhoPlaylist() + getMediaType() + ", aqui está: ");
-        //Music playlist = new Music();
         for (String item : playlist) {
             System.out.println(item);
         }

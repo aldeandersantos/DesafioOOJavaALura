@@ -1,15 +1,14 @@
 package classes;
 
 public class Podcast extends Media {
-
     public void pedePodcast() {
+        setMediaType(" episódios de podcast");
         System.out.println("Digite o nome de um episódio de podcast: ");
         userInput = scanner.nextLine();
         playlist.add(userInput);
         retornaMaisPodcast();
         imprimePlaylist(playlist);
     }
-
     public void retornaMaisPodcast(){
         while (maisUmaMedia){
             System.out.println("""
@@ -25,14 +24,12 @@ public class Podcast extends Media {
                 System.out.println("Digite o nome do episódio: ");
                 userInput = scanner.nextLine();
                 playlist.add(userInput);
-
                 contador++;
             }   else {
                 maisUmaMedia = false;
             }
-
-            setTamanhoPlaylist(contador);
         }
+        setTamanhoPlaylist(contador);
         scanner.close();
     }
 }

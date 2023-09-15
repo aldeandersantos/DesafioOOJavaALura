@@ -4,13 +4,13 @@ import interfaces.Audio;
 
 public class Music extends Media implements Audio {
     public void pedeMusica() {
+        setMediaType(" musicas");
         System.out.println("Digite o nome de uma musica: ");
         userInput = scanner.nextLine();
         playlist.add(userInput);
         retornaMaisMusica();
         imprimePlaylist(playlist);
     }
-
     public void retornaMaisMusica(){
         while (maisUmaMedia){
             System.out.println("""
@@ -26,14 +26,12 @@ public class Music extends Media implements Audio {
                 System.out.println("Digite o nome da musica: ");
                 userInput = scanner.nextLine();
                 playlist.add(userInput);
-
                 contador++;
             }   else {
                 maisUmaMedia = false;
             }
-
-            setTamanhoPlaylist(contador);
         }
+        setTamanhoPlaylist(contador);
         scanner.close();
     }
 }
