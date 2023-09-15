@@ -1,8 +1,12 @@
 package interfaces;
+
 import java.util.ArrayList;
 
 public interface Audio {
-    void retornaNome();
+    void menuPrincipal();
+    void pedeMusica();
     void retornaMaisMusica();
+    void pedePodcast();
+    void retornaMaisPodcast();
     void imprimePlaylist(ArrayList<String> playlist);
 }
